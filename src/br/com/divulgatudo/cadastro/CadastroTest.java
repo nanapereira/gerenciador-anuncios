@@ -49,6 +49,7 @@ public class CadastroTest {
 		ArrayList<Cadastro> cadastros = popularCadastros();
 		ArrayList<Cadastro> retornoClientes = calculadoraRelatorio.filtroPorData(cadastros, "15/04/2021", "20/06/2021");
 		assertEquals("Cliente Dois", retornoClientes.get(0).getCliente());
+		assertEquals(3.333333333, retornoClientes.get(0).getInvestimentoDia());
 	}
 
 //// Metodos utilitarios para popular cadastros ////
