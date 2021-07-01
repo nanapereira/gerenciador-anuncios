@@ -1,16 +1,12 @@
-package br.com.divulgatudo.cadastro;
+package br.com.divulgatudo.anuncio;
 
-public class Cadastro {
+public class Anuncio {
 
 	private String nomeAnuncio;
 	private String cliente;
 	private String dataInicio;
 	private String dataTermino;
-	private Double investimentoDia;
-	
-	public Cadastro() {
-
-	}
+	private double investimentoDia;
 
 	public String getNomeAnuncio() {
 		return nomeAnuncio;
@@ -44,13 +40,12 @@ public class Cadastro {
 		this.dataTermino = dataTermino;
 	}
 
-	public Double getInvestimentoDia() {
+	public double getInvestimentoDia() {
 		return investimentoDia;
 	}
 
-	public void setInvestimentoDia(Double investimentoDia) {
+	public void setInvestimentoDia(double investimentoDia) {
 		this.investimentoDia = investimentoDia;
 	}
-	
 
 }

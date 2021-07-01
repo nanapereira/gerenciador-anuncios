@@ -1,37 +1,34 @@
 package br.com.divulgatudo.calculadora;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.Test;
-
 public class Calculadora {
 
-	public int calculaAlcanceAnuncio(Double valorInvestido) {
-		double vizualizacoesOriginais = valorInvestido * 30;
-		double novosCliques = vizualizacoesOriginais * (12.0 / 100.0);
-		double novosCompartilhamentos = (novosCliques / 20) * 3;
-		double novasVisualizacoes = novosCompartilhamentos * 40;
-		int projecaoVisualizacoes = (int) (vizualizacoesOriginais + novasVisualizacoes);
-		return projecaoVisualizacoes;
+	public static void main(String[] args) {
+		Calculadora calculadora = new Calculadora();
+		int projecaoMaximaVisualizacoes = calculadora.calculaMaximoVisualizacoes(1.00);
+		System.out.println("A projeção aproximada da quantidade máxima de pessoas que visualizarão o mesmo anúncio é: "
+				+ projecaoMaximaVisualizacoes);
 	}
 
-	@Test
-	public void calculaAlcanceAnuncioTeste() {
-		int pessoasQueVizualizam = calculaAlcanceAnuncio(1.00);
-		assertEquals(51, pessoasQueVizualizam);
-
+	public double calculaCliques(double valorTotalInvestido) {
+		double vizualizacoesOriginais = valorTotalInvestido * 30;
+		double projecaoCliques = vizualizacoesOriginais * (12.0 / 100.0);
+		return projecaoCliques;
 	}
 
-	@Test
-	public void calculaAlcanceAnuncioZeroTest() {
-		int pessoasQueVizualizam = calculaAlcanceAnuncio(0.0);
-		assertEquals(0, pessoasQueVizualizam);
+	public double calculaCompartilhamentos(double valorTotalInvestido) {
+		double projecaoCompartilhamentos = (calculaCliques(valorTotalInvestido) / 20) * 3;
+		return projecaoCompartilhamentos;
 	}
-	
-	@Test
-	public void calculaAlcanceAnuncioDoisTest() {
-		int pessoasQueVizualizam = calculaAlcanceAnuncio(3.333333333);
-		assertEquals(171, pessoasQueVizualizam);
+
+	public double calculaNovasVisualizacoes(double valorTotalInvestido) {
+		double projecaoNovasVisualizacoes = calculaCompartilhamentos(valorTotalInvestido) * 40;
+		return projecaoNovasVisualizacoes;
+	}
+
+	public int calculaMaximoVisualizacoes(double valorTotalInvestido) {
+		int projecaoMaximaVisualizacoes = (int) ((valorTotalInvestido * 30)
+				+ calculaNovasVisualizacoes(valorTotalInvestido));
+		return projecaoMaximaVisualizacoes;
 	}
 
 }
