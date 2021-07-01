@@ -12,7 +12,7 @@ https://github.com/nanapereira/gerenciador-anuncios/tree/master/src/br/com/divul
 #### No pacote divulgatudo.cadastro encontram-se tres classes.
 
 #### Cadastro.java que contem as atributos da entidade cadastro.
-#### CadastroRelatorio.java responsavél pelos métodos de filtroPorData(), filtroPorCliente() e gerarRelatorio().
+#### CadastroRelatorio.java responsavél pela regra de negocio.
 #### CadastroTeste.java com alguns cenários unitários para testar os métodos e popular os cadastros que serão filtrados.
 
 https://github.com/nanapereira/gerenciador-anuncios/tree/master/src/br/com/divulgatudo/cadastro
